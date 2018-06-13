@@ -2,8 +2,10 @@ public class ApiController {
 	private $logger;
     private $dataBase = null;
 
+    // What would be a correct way to write this constructor?
     public ApiController(IDatabase $dataBase,LoggerInterface $logger) {
-        if ($database == null)
+        // Where this exception could/should be thrown?
+	if ($database == null)
             throw new Exception("IDatabase");
 
         $this->dataBase = $dataBase;
@@ -13,11 +15,13 @@ public class ApiController {
 
     public function doAction(CustomerReposiotry customer)
     {
+	// What kind of problem can we have when using global variables?
         $Case = $_GET["case"];
         $customer = $_POST["customer"];
         $product_id = $_GET["productId"];
 
         try {
+	// think about what could be done to avoid this logic in a controller
             switch ($Case) :
                 case 'product':
 				//Get from server .
